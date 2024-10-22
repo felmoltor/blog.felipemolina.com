@@ -2,7 +2,7 @@
 layout: page
 title: Public Talks
 icon: fa-solid fa-microphone
-order: 1
+order: 10
 ---
 
 * **Man in the Middle, but for Mails (MaitM)** - 20th Sep 2024
