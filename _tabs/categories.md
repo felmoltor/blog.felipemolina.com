@@ -3,3 +3,8 @@ layout: categories
 icon: fas fa-stream
 order: 1
 ---
+
+talks
+posts
+kb
+social networks
