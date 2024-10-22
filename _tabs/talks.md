@@ -15,12 +15,14 @@ order: 10
   In this talk we will explore this attack vector, ultimately setting ourselves up for a Mail-in-the-middle (MaiTM) attack to steal confidential information, login using password resets, embed tracking pixels and even deliver malware. Configuring this can still take some work and requires quick timing, so to help with that we have developed a toolkit that we will demonstrate during this talk. Finally, considering the impact of these attacks we will dive into some detection and prevention strategies for this attack while also releasing some new proof of concept tooling to aid organizations in defending against it
 * **Dress Code - Analysis of the Current Status of CSP** - 25th Oct 2023
   * **Where**: [Sector 2023](https://www.blackhat.com/sector/2023/)
+  * **Tool**: [https://github.com/sensepost/dresscode](https://github.com/sensepost/dresscode)
   * **Link**: [https://www.blackhat.com/sector/2023/briefings/schedule/index.html#dress-code---analysis-of-the-current-status-of-the-content-security-policy-34050](https://www.blackhat.com/sector/2023/briefings/schedule/index.html#dress-code---analysis-of-the-current-status-of-the-content-security-policy-34050)
   * **Slides**: [Sector-23-Molina-Dress-Code.pdf]( /assets/presentations/2023/sector/Sector-23-Molina-Dress-Code.pdf )
   * **Summary**: The top one million most popular sites were scanned and their CSP related headers were stored. The values of the CSP headers were analysed to answer several questions. How popular is this security measure nowadays? What are common pitfalls and misconfigurations within CSP headers. How often do sites enable reporting of violations to take a more proactive approach? Do sites blindly trust third parties such as content delivery networks and how can this trust be abused.
   This talk will cover the results of the analysis against real world data and answer the previous questions. Additionally, it will present practical eighth novel exploitation examples and provide with effective hardening and mitigation to the detected weaknesses.
 * **Dress Code - Analysis of the Current Status of CSP** - 20th Aug 2023
   * **Where**: [Defcon 31 - AppsSec Village](https://www.appsecvillage.com/events/dc-2023)
+  * **Tool**: [https://github.com/sensepost/dresscode](https://github.com/sensepost/dresscode)
   * **Recording**: [https://www.youtube.com/watch?v=9xTw_SKed-Q&ab_channel=AppSecVillage](https://www.youtube.com/watch?v=9xTw_SKed-Q&ab_channel=AppSecVillage)
   * **Slides**: [Sector-23-Molina-Dress-Code.pdf]( /assets/presentations/2023/sector/Sector-23-Molina-Dress-Code.pdf )
 * **Breaking the Security of Location-enabled Apps** - 17th Sep 2021
