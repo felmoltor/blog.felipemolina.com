@@ -1,4 +1,9 @@
-Public Talks:
+---
+layout: page
+title: Public Talks
+icon: fas fa-tags
+order: 1
+---
 
 * 20 Sep 2024 - **Man in the Middle, but for Mails (MaitM)**
   * **Where**: Brucon 0x10
@@ -21,6 +26,8 @@ Public Talks:
   * **Slides**: [Sector-23-Molina-Dress-Code.pdf]( /assets/presentations/2023/sector/Sector-23-Molina-Dress-Code.pdf )
 * 17th Sep 2021 - **Breaking the Security of Location-enabled Apps**
   * **Where**: BSides Copenhagen 2021
+  * * **Summary**: Using various mobile applications' Location Based Services (LBS), we were able to precisely geolocate users of many of these platforms. In performing a broad-based study on nearly twenty applications, a vulnerability class that is nearing a 10-year anniversary more recently surfaced in Telegram, for which we were also able to develop a partial bypass to still locate users with good enough accuracy. In this talk, we will discuss how to exploit these LBS vulnerabilities while automating parts of them, as well as how to effectively defend against them.
+  As penetration testers, we have analyzed many LBS-enabled mobile applications, ranging from social networks, mobile games &payments as well as banking applications. These services, while seemingly harmless, are often used without considering their privacy impact. Since 2013, well-known applications such as Tinder, Grindr, Strava and others, have suffered from LBS-related vulnerabilities and privacy concerns.
   * **Recording**: https://vimeo.com/621385238
   * **Slides**: [Breaking-the-Security-of-Location-enabled-Apps.pdf]( /assets/presentations/2021/bsides/Breaking-the-Security-of-Location-enabled-Apps.pdf )
 
