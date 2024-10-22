@@ -8,3 +8,4 @@ talks
 posts
 kb
 social networks
+cves and published vulnerabilities
