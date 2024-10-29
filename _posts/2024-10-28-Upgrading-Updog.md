@@ -30,7 +30,7 @@ As a result, I got [Updog3](https://github.com/felmoltor/updog3) (I could not us
 
 I also did a poor and lousy attempt to update the logo (Sorry to the original logo creator, I am not a designer 🫠) to show Updog3 instead.
 
-And you may ask: "Why did you do this, Felipe? Isn't ther already a bazillion nice upload and downloading tools for this, such as [gosh](https://github.com/patrickhener/goshs). Aren't you a bit dense?"
+And you may ask: _"Why did you do this, Felipe? Isn't there already a bazillion upload tools for this purpose, such as [gosh](https://github.com/patrickhener/goshs)? Aren't you a bit dense?"_
 
 The response would be "yes" to all these questions, but in my defense I would say that by doing this I had the chance of learning a bit more of github workflows, and pypi publishing, which was a first time for me. And what's a better reward in life than learning new things in a process? eh? tell me? maybe a million euros? yes, maybe, but that's not the point. I am rambling.
 
@@ -73,3 +73,9 @@ There are a few open issues in the original repository that I intend to address,
 
 And that's all!
 If you use the tool and have any suggestion to improve it, ping me.
+
+# Links:
+
+* [https://pypi.org/project/updog3/](https://pypi.org/project/updog3/)
+* [https://github.com/felmoltor/updog3](https://github.com/felmoltor/updog3)
+
