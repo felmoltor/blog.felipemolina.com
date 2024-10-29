@@ -67,7 +67,7 @@ updog3 -p 443 --ssl --cert /certs/cert1.pem /certs/privkey1.pem -d /transfer
 
 # Future Work
 There are a few open issues in the original repository that I intend to address, for example:
-* [Change interface](https://github.com/sc0tfree/updog/issues/44).
+* [Change interface](https://github.com/sc0tfree/updog/issues/44). [✅ Done]
 * [Add webdav](https://github.com/sc0tfree/updog/issues/25)
 * [Zip and download dirs](https://github.com/sc0tfree/updog/issues/40)
 
