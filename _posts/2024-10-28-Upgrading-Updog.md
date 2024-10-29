@@ -1,13 +1,18 @@
 ---
 categories: ["blog"]
+title: Upgrading Updog! 🐶
 tags: ["tool","upload","download"]
-author: Felipe Molina de la Torre
+description: How to learn github workflows and pypi publication when your situation requires it
 ---
 
 # Context
 
 Hey! welcome to my first post!
 Let's right dive into matters:
+
+![Updog3](../assets/img/posts/Updog3.png){: .width=40}
+_Updog3 is here!_
+
 
 In a recent pentest I needed a way to upload and download files to the client's network.
 
@@ -18,7 +23,7 @@ The tool has not been updated in 4 years and have quite a few unattended issues 
 
 Some issues of the project requested to [allow custom certificates](https://github.com/sc0tfree/updog/issues/28), [hide the full path to the folder](https://github.com/sc0tfree/updog/issues/36), and decide [whether the server allowed upload or not](https://github.com/sc0tfree/updog/issues/20). Seeing that these issues were open for a while I decided to address them myself.
 
-As a result, I got [Updog2](https://github.com/felmoltor/updog3) (I could not use updog2 as there were already another project called updog2 🤷), a fork of Updog, with that three features implemented. These three new features can be used by means of three new flags during execution:
+As a result, I got [Updog3](https://github.com/felmoltor/updog3) (I could not use updog2 as there were already another project called updog2 🤷), a fork of Updog, with that three features implemented. These three new features can be used by means of three new flags during execution:
 * `--cert cert.pem key.pem`: This flag sets the certificate to use. It allows you to use custom certificates such as Let's Encrypt ones.
 * `--upload [only, enabled, disabled]`: This sets the mode of upload/download. The three options are self-explanatory.
 * `--fullpath`: This is a switch. If provided, the full path to the directory with be displayed.
