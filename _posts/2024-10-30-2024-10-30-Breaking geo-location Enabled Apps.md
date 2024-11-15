@@ -52,7 +52,7 @@ I started manually spoofing the location of my testing device, taking note of th
 
 (Note: Initially, this tool was not released due to the concerns against the privacy of the users of Telegram. But after certain point, many people released their own tools and post, so that is not a concern anymore.)
 
-The tool, was initially only targeting Telegram, but soon I grew hungry and decided to extend the study to other Apps, specifically to dating apps. Dating apps are prone to this breach of privacy because, as mentioned by XXX (link), it's assumed and accepted by the users of the application to give away their private information to have better chances to find a partner. It's assumed, and it's part of the game.
+The tool, was initially only targeting Telegram, but soon I grew hungry and decided to extend the study to other Apps, specifically to dating apps. Dating apps are prone to this breach of privacy because it's assumed and accepted by the users of the application to give away their private information to have better chances to find a partner. It's assumed, and it's part of the game.
 
 # The target apps
 
@@ -98,8 +98,8 @@ Firsts and foremost, the main objective of the study was to see if we could accu
 2. Vulnerable to rough geo-location
 3. Easy to spoof your own geo-location (e.g. providing a parameter in a POST request)
 4. [Certificate pinning](https://www.ssl.com/blogs/what-is-certificate-pinning/)
-6. [Root/Jailbreak detection](https://mas.owasp.org/MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0088/)
-7. [Profile verification mechanisms](https://www.help.tinder.com/hc/en-us/articles/4422771431309-How-Does-Photo-Verification-Work#h_01H05ZJJT6JR30HX4HCFBBS4HG)
+5. [Root/Jailbreak detection](https://mas.owasp.org/MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0088/)
+6. [Profile verification mechanisms](https://www.help.tinder.com/hc/en-us/articles/4422771431309-How-Does-Photo-Verification-Work#h_01H05ZJJT6JR30HX4HCFBBS4HG)
 
 We got the following results: 
 
