@@ -68,7 +68,7 @@ Which, breaking it down is:
 * 000000 (Sequence Number)
 * 1 (Type): This is the type of the query. In this case, '4' means File Name frame.
 * 0000C (Length): This is the length, in number of queries, of the file to being transmitted.
-* 0|1 (Comrpessed flag): This is a flag to indicate the server if the content of the file is compressed or not.
+* 0 or 1 (Comrpessed flag): This is a flag to indicate the server if the content of the file is compressed or not.
 * 0C9F3C79DDDA4B9EF32DC59B618F0FACADCF1FAB6 (sha1 hash): The hash of the file. To be compared with the file that the server has received.
 
 ## Data Frame
