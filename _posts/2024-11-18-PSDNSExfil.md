@@ -129,6 +129,10 @@ _This is not your average DNS traffic_
 As you can observe, this traffic looks really suspicious. 
 Here's your chance to design detection rules based in the entropy and frequency of the DNS queries!
 
+# Github Project
+Here's the code:
+* [https://github.com/felmoltor/psdnsexfil](https://github.com/felmoltor/psdnsexfil)
+
 # Conclussions
 I did this tool as a way to learn how DNS exfiltration works under the hood. Another objective was to have something that would not be flagged as malicious by comercial AV products. I did not set other grandious objectives beyond these two, but I thought it is nice if I shared the tool with other people.
 
