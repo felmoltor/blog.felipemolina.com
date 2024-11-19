@@ -104,5 +104,11 @@
   {% endunless %}
 
   {% include metadata-hook.html %}
+  <!-- Environment: {{ jekyll.environment }} -->
+  {% if site.google_analytics and jekyll.environment == 'production' %}
+    {% include ganalytics.html %}
+  {% else %}
+  <!-- Google Tag Manager not defined -->
+  {% endif %}
 
 </head>
