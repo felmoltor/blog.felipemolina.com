@@ -91,7 +91,7 @@ PyMODINIT_FUNC PyInit_importlib(void) {
 
 The second key part is a C root shell. There are millions of these in internet, so no point in showing the code here. If you are curious go to [rootshel.c](https://github.com/felmoltor/CVE-2024-48990/blob/main/rootshell.c).
 
-The third part was a bash script that automates the compilation of the Python library, the rootshell and launches pyton process (loop.py) in background with the `PYTHONPATH` pointing to `/home/$USER/CVE-2024-48990/`. Finally, it just waits in a while loop for the utility 'needreboot' to do its magic and load the malicious library upon a periodic check (That "periodic check" can be simulated by yourself installing a new package with `sudo apt install nano` or any other package or maybe ). When 'needrestart' executes the library, the suid bit of the rootshell is on and owned by root, so the loop finishes and the shell is invoked:
+The third part was a bash script that automates the compilation of the Python library, the rootshell and launches pyton process (loop.py) in background with the `PYTHONPATH` pointing to `/home/$USER/CVE-2024-48990/`. Finally, it just waits in a while loop for the utility 'needreboot' to do its magic and load the malicious library upon a periodic check (That "periodic check" can be simulated by yourself installing a new package with `sudo apt install nano` or any other small package). When 'needrestart' executes the library, the suid bit of the rootshell is on and owned by root, so the loop finishes and the shell is invoked:
 
 ```bash
 #!/bin/bash
