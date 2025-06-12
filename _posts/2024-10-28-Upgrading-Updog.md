@@ -3,6 +3,9 @@ categories: ["blog"]
 title: Upgrading Updog! 🐶
 tags: ["tool","upload","download"]
 description: How to learn github workflows and pypi publication when your situation requires it
+image: 
+  path: 'assets/img/posts/Updog3.png'
+  alternative: 'Updog 3 is available for PG rated audience'
 ---
 
 # Context
