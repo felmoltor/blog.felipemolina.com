@@ -12,7 +12,7 @@ image:
 This is a mirror of the original post in [Orange Cyberdefense](https://www.orangecyberdefense.com/)/[SensePost](https://sensepost.com/) blog [here](https://sensepost.com/blog/2025/depscanner-find-orphaned-packages-before-the-bad-guys-do/). 
 
 # Context
-I recently shared with my colleagues the quickest method to getting banned from [pypi.org](pypi.org), but, believe or not, that was not the original intention of the talk.
+I recently shared with my colleagues the quickest method to getting banned from [pypi.org](https://pypi.org), but, believe or not, that was not the original intention of the talk.
 
 My real intention was to share what the current status of dependency confusion is in 2025 (one flavour of supply chain attacks) and present [a tool](https://github.com/sensepost/depscanner/) to detect potential orphan dependencies in GitHub repositories and two short stories, one about great hacking success, and another about being an idiot. Stick around.
 
@@ -221,7 +221,7 @@ At some point I found an orphan package name compliant to the project name restr
 
 DISCLAIMER: DO NOT TRY THIS AT HOME. I learned it the hard way, but the [Acceptable Use Policy](https://policies.python.org/pypi.org/Acceptable-Use-Policy/) of pypi.org states that this platform should not be used to research vulnerabilities, like I did, or for bug bounties and other dual use:
 
-![PyPi acceptable use policy](depscanner-aup.png)
+![PyPi acceptable use policy](../assets/img/posts/depscanner-aup.png)
 
 Not being aware of this restriction, which clearly makes sense, I published my proof of concept package. In an unexpected turn of events, my personal account was banned after a short time! Well, I earned it. Totally deserved 🤷🏻‍♂️
 
