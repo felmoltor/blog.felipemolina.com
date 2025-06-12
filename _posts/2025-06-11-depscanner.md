@@ -22,13 +22,13 @@ As usual, a comic strip from xkcd perfectly summarises the dangers of building m
 
 I won't go into details of [what a suply chain attack](https://attack.mitre.org/techniques/T1195/) is nor what dependency confusion is. I'll assume you are familiar with the terms and have not lived under a rock for a year. Just in case though, I'll leave you with a few links to refresh your mind on different flavours of supply chain attacks:
 
-* https://attack.mitre.org/techniques/T1195/
-* https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610 
-* https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf 
-* https://en.wikipedia.org/wiki/XZ_Utils_backdoor 
-* https://www.ibm.com/docs/en/randori?topic=2022-solarwinds-orion-cve-2020-10148
-* https://securitylabs.datadoghq.com/articles/mut-8964-an-npm-and-pypi-malicious-campaign-targeting-windows-users/ 
-* https://www.bbc.com/news/articles/cwy3l02wxqdo
+* [https://attack.mitre.org/techniques/T1195/](https://attack.mitre.org/techniques/T1195/)
+* [https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610) 
+* [https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf](https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf)
+* [https://en.wikipedia.org/wiki/XZ_Utils_backdoor](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
+* [https://www.ibm.com/docs/en/randori?topic=2022-solarwinds-orion-cve-2020-10148](https://www.ibm.com/docs/en/randori?topic=2022-solarwinds-orion-cve-2020-10148)
+* [https://securitylabs.datadoghq.com/articles/mut-8964-an-npm-and-pypi-malicious-campaign-targeting-windows-users/](https://securitylabs.datadoghq.com/articles/mut-8964-an-npm-and-pypi-malicious-campaign-targeting-windows-users/)
+* [https://www.bbc.com/news/articles/cwy3l02wxqdo](https://www.bbc.com/news/articles/cwy3l02wxqdo)
 
 Supply chain attacks are not something novel (Ken Thompson's talk linked above, about a supply chain attack in the C compiler was from 1984). It's all about who you trust and how many levels of trust are needed to run Netflix on your TV or [Roblox](https://socket.dev/blog/roblox-developers-targeted-with-npm-packages-infected-with-infostealers) on your computer. At some point you have to trust someone else to do the right thing and not get compromised.
 
@@ -174,7 +174,7 @@ After some digging, I found this was due to a magical thing called Monolithic Re
 
 ![Monorepos bob](../assets/img/posts/depscanner-monorepos.png)
 
-Specifically, they are using [pnpm workspaces](https://pnpm.io/workspaces) in their project, so everything that had the @[REDACTED]-internal scope was not coming from npmjs.org, but rather from the folder “[REDACTED]/internals”, where all these packages were located:
+Specifically, they are using [pnpm workspaces](https://pnpm.io/workspaces) in their project, so everything that had the @[REDACTED]-internal scope was not coming from npmjs.org, but rather from the folder "[REDACTED]/internals", where all these packages were located:
 
 ![Monorepo github](../assets/img/posts/depscanner-monorepo.png)
 
@@ -204,7 +204,8 @@ Nothing suspicious here, no? This only makes the exploitation a bit harder and t
 
 I reported this to [redacted] via HackerOne and they responded quickly and resolved it in an efficient manner by explicitly indicating these packages were supposed to come from the workspace/monorepo:
 
-![How bug was fixed](../assets/img/posts/depscanner-fix.png 'Now it is explicitly mentioned that these packages should be pulled form the workspace')
+![How bug was fixed](../assets/img/posts/depscanner-fix.png)
+_Now it is explicitly mentioned that these packages should be pulled form the workspace_
 
 They also took ownership of the npmjs.org scope that I created for the proof of concept and the malicious packages were deleted.
 
@@ -225,7 +226,8 @@ DISCLAIMER: DO NOT TRY THIS AT HOME. I learned it the hard way, but the [Accepta
 
 Not being aware of this restriction, which clearly makes sense, I published my proof of concept package. In an unexpected turn of events, my personal account was banned after a short time! Well, I earned it. Totally deserved 🤷🏻‍♂️
 
-![Garfield banned](../assets/img/posts/depscanner-banned.png 'Banned from pypi.org')
+![Garfield banned](../assets/img/posts/depscanner-banned.png)
+_Banned from pypi.org_
 
 But back to the point – similar to when I published the npm packages, after they were published I started receiving some interactions with the canary token. Most of the interactions were sandboxes owned by the “Defenders of the Internet” detonating the library/package:
 
