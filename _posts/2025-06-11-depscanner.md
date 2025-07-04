@@ -18,7 +18,7 @@ My real intention was to share what the current status of dependency confusion i
 
 As usual, a comic strip from xkcd perfectly summarises the dangers of building modern software systems and how compromising that little project in the low right corner can compromise the integrity of the whole project:
 
-![xkcd supply chain](../assets/img/posts/xkcd-supply-chain.png)
+![xkcd supply chain](../assets/img/posts/depscanner/xkcd-supply-chain.png)
 
 I won't go into details of [what a suply chain attack](https://attack.mitre.org/techniques/T1195/) is nor what dependency confusion is. I'll assume you are familiar with the terms and have not lived under a rock for a year. Just in case though, I'll leave you with a few links to refresh your mind on different flavours of supply chain attacks:
 
@@ -38,7 +38,7 @@ After some conversations with people, I decided to take a look at the current st
 
 The tool has the following general flow:
 
-![xkcd supply chain](../assets/img/posts/depscanner-flow.png)
+![xkcd supply chain](../assets/img/posts/depscanner/depscanner-flow.png)
 
 Depscanner receives as an input: a list of organisation names, domain names, or repository names (orgname/reponame). It then lists the repositories of a target organisation via the GitHub API and tries to find whether the repository has a well-known dependency file such as requirements.txt, a Pipenv, Gemfile, go.mod, package.json, etc. Next, depscanner parses the dependency file and lists each library/module that this repository requires. Finally, it will try and access the public package registries and find whether that library exists or not.
 
@@ -58,7 +58,7 @@ You, being a hacker, will be able to use the CLI, but I created the web interfac
 
 Then, go to the "Upload" tab and upload a list of domains/organisation names/repositories to scan:
 
-![Upload sources](../assets/img/posts/depscanner-upload.png)
+![Upload sources](../assets/img/posts/depscanner/depscanner-upload.png)
 
 Now, go to the “Run” tab and provide the following information:
 
@@ -71,13 +71,13 @@ Now, go to the “Run” tab and provide the following information:
 
 Click on "Run":
 
-![Upload sources](../assets/img/posts/depscanner-run.png)
+![Upload sources](../assets/img/posts/depscanner/depscanner-run.png)
 
 After the first download of GitHub data you should see the “Scan Progress” bar advance. This process takes long, mostly because GitHub imposes strict API rate limits and the program has an automatic exponential backoff algorithm to wait when the rate limit is hit.
 
 Finally, when the scan has finished, you can find the missing packages in the “Missing Packages” tab:
 
-![Orphan packages](../assets/img/posts/depscanner-missing.png)
+![Orphan packages](../assets/img/posts/depscanner/depscanner-missing.png)
 
 You will also get the results in your Discord channel if you provided a webhook before execution.
 
@@ -115,7 +115,7 @@ It was able to find several orphan packages in Github projects with hundreds of 
 
 This was also reported by depscanner via Discord with the following message:
 
-![Discord notification](../assets/img/posts/depscanner-discord.png)
+![Discord notification](../assets/img/posts/depscanner/depscanner-discord.png)
 
 Neither the scope "@[REDACTED]-internals" nor the packages with names "constants" or "tsconfig" were found in npmjs.org, so, I registered the scope "@[redacted]-internals" and published both packages under that scope.
 
@@ -172,11 +172,11 @@ The problem was that even when I had registered these scopes and packages in npm
 
 After some digging, I found this was due to a magical thing called Monolithic Repository/Monorepo or [Workspaces](https://docs.npmjs.com/cli/v8/using-npm/workspaces):
 
-![Monorepos bob](../assets/img/posts/depscanner-monorepos.png)
+![Monorepos bob](../assets/img/posts/depscanner/depscanner-monorepos.png)
 
 Specifically, they are using [pnpm workspaces](https://pnpm.io/workspaces) in their project, so everything that had the @[REDACTED]-internal scope was not coming from npmjs.org, but rather from the folder "[REDACTED]/internals", where all these packages were located:
 
-![Monorepo github](../assets/img/posts/depscanner-monorepo.png)
+![Monorepo github](../assets/img/posts/depscanner/depscanner-monorepo.png)
 
 Well, game over then, no? :-(
 
@@ -204,7 +204,7 @@ Nothing suspicious here, no? This only makes the exploitation a bit harder and t
 
 I reported this to [redacted] via HackerOne and they responded quickly and resolved it in an efficient manner by explicitly indicating these packages were supposed to come from the workspace/monorepo:
 
-![How bug was fixed](../assets/img/posts/depscanner-fix.png)
+![How bug was fixed](../assets/img/posts/depscanner/depscanner-fix.png)
 _Now it is explicitly mentioned that these packages should be pulled form the workspace_
 
 They also took ownership of the npmjs.org scope that I created for the proof of concept and the malicious packages were deleted.
@@ -216,26 +216,26 @@ Not quite, I found many other repositories using orphan packages, but the majori
 
 Some of the python packages I tried to publish were explicitly forbidden by pypi.org due to their [policy of valid names](https://pypi.org/help/#project-name), for example "evernote-oauth-sample" or "pkg-resources":
 
-![PyPi rejecting a package due to naming conflicts](../assets/img/posts/depscanner-evernote.png)
+![PyPi rejecting a package due to naming conflicts](../assets/img/posts/depscanner/depscanner-evernote.png)
 
 At some point I found an orphan package name compliant to the project name restrictions. But before I continue...
 
 DISCLAIMER: DO NOT TRY THIS AT HOME. I learned it the hard way, but the [Acceptable Use Policy](https://policies.python.org/pypi.org/Acceptable-Use-Policy/) of pypi.org states that this platform should not be used to research vulnerabilities, like I did, or for bug bounties and other dual use:
 
-![PyPi acceptable use policy](../assets/img/posts/depscanner-aup.png)
+![PyPi acceptable use policy](../assets/img/posts/depscanner/depscanner-aup.png)
 
 Not being aware of this restriction, which clearly makes sense, I published my proof of concept package. In an unexpected turn of events, my personal account was banned after a short time! Well, I earned it. Totally deserved 🤷🏻‍♂️
 
-![Garfield banned](../assets/img/posts/depscanner-banned.png)
+![Garfield banned](../assets/img/posts/depscanner/depscanner-banned.png)
 _Banned from pypi.org_
 
 But back to the point – similar to when I published the npm packages, after they were published I started receiving some interactions with the canary token. Most of the interactions were sandboxes owned by the “Defenders of the Internet” detonating the library/package:
 
-![Canary Token triggered by someone installing my rogue package](../assets/img/posts/depscanner-canary.png)
+![Canary Token triggered by someone installing my rogue package](../assets/img/posts/depscanner/depscanner-canary.png)
 
 This is obviously what led to the package being detected as malware on multiple sites, like socket.dev or snyk.io, whose main business is that, kudos to them:
 
-![Rogue package detected as supply chain attack](../assets/img/posts/depscanner-detection.png 'Hey, I already said in the description of the package this was a harmless proof of concept! Why that score?')
+![Rogue package detected as supply chain attack](../assets/img/posts/depscanner/depscanner-detection.png 'Hey, I already said in the description of the package this was a harmless proof of concept! Why that score?')
 
 Wrapping up this section: there were some other orphan packages detected by Depscanner, but not many of them were worth taking a closer look into as they mostly were being used by the kind of GitHub repositories last updated in 2010 and published as part of a tutorial used by no one other than the author to learn.
 
