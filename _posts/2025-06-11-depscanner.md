@@ -4,7 +4,7 @@ title: Depscanner - Find orphaned packages before the bad guys do
 tags: ["tool","supply chain", "Dependency confusion", "Npm", "Orphan dependency", "Pypi"]
 description: A tool to detect orphaned packages and exploit depencency confusions with a nice web UI
 image: 
-  path: '../assets/img/posts/depscanner-header.png'
+  path: '../assets/img/posts/depscanner/depscanner-header.png'
   alternative: 'Find orphaned packages before the bad guys do'
 ---
 
